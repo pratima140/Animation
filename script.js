@@ -1,80 +1,17 @@
-let circle = document.querySelector('#circle');
-const button = document.querySelector('#button');
-var hello = gsap.timeline();
-const svgPart = document.querySelector('svg');
+const menu = document.querySelector('#menu')
+const background = document.querySelector('#background')
+const sidenav = document.querySelector('#sidenav')
+const closeelem = document.querySelector('#close')
 
-window.addEventListener(  'mousemove',function(details){    
-    let xValue = details.clientX;
-    let yValue = details.clientY;
-
-    this.setTimeout(function(){
-        circle.style.top = `${yValue}px`;
-    circle.style.left = `${xValue}px`;
-    },70)
-
-});
-
-button.addEventListener('click', function(){
-   hello.reverse();
-   setTimeout(function(){
-       svgPart.classList.add('animate');
-   },8500)
+closeelem.addEventListener('click' , function(){
+    background.style.transform ='translateX(0px) scale(1)';
+   background.style.filter = 'blur(0px)';
+   sidenav.style.left = '-17%'
 })
 
-
-
-
-
-
-
-hello
-.from('#wrapper', {
-    duration: 3,
-    scale: .10,
-    ease: 'Expo.easeInOut',
-    opacity: 0
+menu.addEventListener('click', function(){
+   background.style.transform ='translateX(200px) scale(.7) rotateY(-6deg) ';
+   background.style.filter = 'blur(1.5px)';
+   sidenav.style.left = '2%'
 })
 
-.from('#strip', {
-    duration: 2,
-    width: 0,
-    ease: 'Expo.easeInOut',
-    })
-
-.from('#blackcard', {
-    duration: 2.5,
-    scale:.10,
-    opacity: 0,
-    ease: 'Expo.easeInOut',
-    },'-=1')
-
-    .from('#blackcard p', {
-        duration: 1.2,
-        y :30,
-        opacity: 0,
-        ease: 'Expo.easeInOut',
-     }, '-=1.2')     
-
-.from('#lineElem', {
-     duration: 1,
-     scale:.10,
-     opacity: 0,
-     ease: 'Expo.easeInOut',
-     },'-=.5')
-
-     
-
-.from('#lineElem .line', {
-     duration: 2.5,
-     width: 0,
-     opacity: 0,
-     ease: 'Expo.easeInOut',
-     })     
-
-     .from('#sidetext', {
-        duration:4,
-        y :150,
-        opacity: 0,
-        ease: 'Expo.easeInOut',
-     }, '-=3.3')  
-    
